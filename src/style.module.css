@@ -1,0 +1,24 @@
+@font-face {
+    font-family: gilroy;
+    src: url(./assets/font/Gilroy-Regular.ttf);
+}
+@font-face {
+    font-family: gilroyBold;
+    src: url(./assets/font/Gilroy-Bold.ttf);
+}
+
+.gilroy{
+    font-family: gilroy;
+}
+.gilroyBold{
+    font-family: gilroyBold;
+}
+
+.borderTop{
+    border-top: 2px solid black;
+}
+
+.scrollBehaviour::-webkit-scrollbar{
+    display: none;
+    scroll-behavior: smooth;
+}
