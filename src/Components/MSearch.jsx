@@ -4,6 +4,7 @@ import { CiMicrophoneOn } from "react-icons/ci";
 import random from "../assets/files/Random";
 
 const MSearch = React.memo(() => {
+    console.log("Search Bar Render")
     let element = useRef();
 
     const intervalRef = useRef(null); 

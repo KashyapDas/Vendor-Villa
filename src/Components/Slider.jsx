@@ -27,7 +27,7 @@ const Slider = React.memo(() => {
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
-
+console.log("Slide Component Render")
   return (
     <div className="relative max-w-[1400px] h-[500px] w-full mx-auto my-8 px-4">
       <div

@@ -10,7 +10,7 @@ const MNavbar = React.memo(() => {
     const {pathname} = useLocation();
 
   return (
-    <div className={`w-full h-[10vh] fixed bottom-0 left-0 translate-x-[0%] translate-y-[0%] ${style.borderTop} flex items-center justify-around visible lg:hidden`}>
+    <div className={`w-full h-[10vh] fixed bottom-0 left-0 translate-x-[0%] translate-y-[0%] ${style.borderTop} flex items-center justify-around visible lg:hidden bg-white`}>
         
         <div className="icons p-1 flex flex-col items-center">
             <IoHomeOutline className={`text-xl ${pathname == '/' ? "text-blue-700" : "text-black"}`} />
