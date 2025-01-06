@@ -1,13 +1,15 @@
 import React from "react";
 import style from "../style.module.css";
 import { CiShoppingCart } from "react-icons/ci";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useRecoilStateLoadable } from "recoil";
 import { SelectorProducts } from "../store/selector/Selectorproducts";
 
 const Cards = React.memo(() => {
-  const [getAllProducts, setAllProducts] = useRecoilStateLoadable(SelectorProducts());
-  console.log("Cards Compon Render");
+
+  const currPath = useLocation();
+
+  const [getAllProducts, setAllProducts] = useRecoilStateLoadable(SelectorProducts(currPath));
 
   return (
     <div className="w-full h-fit p-1 flex flex-wrap gap-x-8 gap-y-5">

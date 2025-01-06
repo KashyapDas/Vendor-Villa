@@ -6,13 +6,16 @@ import style from '../style.module.css'
 import { useRecoilStateLoadable } from 'recoil'
 import { SelectorProducts } from '../store/selector/Selectorproducts'
 import LoadingScreen from '../Components/LoadingScreen '
+import { useLocation } from 'react-router-dom'
 
 const Home = () => {
 
-  const [getAllProducts, setAllProducts] = useRecoilStateLoadable(SelectorProducts());
+  const currPath = useLocation();
+
+  const [getAllProducts, setAllProducts] = useRecoilStateLoadable(SelectorProducts(currPath));
 
   return getAllProducts.state != "loading" ? (
-    <div className={`w-full h-[90vh] overflow-x-hidden overflow-y-scroll ${style.scrollBehaviour}`}>
+    <div className={`w-full h-[93vh] overflow-x-hidden overflow-y-scroll ${style.scrollBehaviour}`}>
       <MSearch />
       <Slider />
       <Cards />
