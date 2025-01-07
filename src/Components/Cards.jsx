@@ -2,20 +2,26 @@ import React from "react";
 import style from "../style.module.css";
 import { CiShoppingCart } from "react-icons/ci";
 import { NavLink, useLocation } from "react-router-dom";
-import { useRecoilStateLoadable } from "recoil";
+import { useRecoilStateLoadable, useSetRecoilState } from "recoil";
 import { SelectorProducts } from "../store/selector/Selectorproducts";
+import { cardDetails } from "../store/atom/cardDetails";
 
 const Cards = React.memo(() => {
 
   const currPath = useLocation();
 
   const [getAllProducts, setAllProducts] = useRecoilStateLoadable(SelectorProducts(currPath));
+  const setCardDetails = useSetRecoilState(cardDetails);
+
+  const handleCardDetails = (item)=>{
+    setCardDetails(item);
+  }
 
   return (
     <div className="w-full h-fit p-1 flex flex-wrap gap-x-8 gap-y-5">
       {getAllProducts.contents.map((items) => (
-        <NavLink
-          to="/description"
+        <NavLink onClick={()=>handleCardDetails(items)}
+          to={`/description/${items.title}`}
           key={items.id}
           className="card h-80 w-48 rounded-xl overflow-hidde p-1 relative bg-white shadow-sm shadow-black"
         >

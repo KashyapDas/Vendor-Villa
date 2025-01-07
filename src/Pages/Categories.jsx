@@ -4,7 +4,7 @@ import { GiLargeDress } from "react-icons/gi";
 import { IoShirt } from "react-icons/io5";
 import { SiStmicroelectronics } from "react-icons/si";
 import { AiOutlineGold } from "react-icons/ai";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useRecoilStateLoadable } from "recoil";
 import { SelectorProducts } from "../store/selector/Selectorproducts";
 import LoadingScreen from "../Components/LoadingScreen ";
@@ -19,8 +19,8 @@ const Categories = () => {
     <div className="w-full h-[93vh] overflow-x-hidden overflow-y-scroll">
       <div className="mobileDiv h-full w-full flex justify-center p-2 flex-wrap lg:hidden">
         {getCategories.contents.map((items, index) => (
-          <div
-          
+          <NavLink
+            to={`/categories/${items}}`}
             key={index}
             className={`categoryCards w-80 h-36 rounded-lg flex items-center justify-center gap-x-3 ${
               items == "women's clothing"
@@ -49,7 +49,7 @@ const Categories = () => {
             ) : (
               "Error"
             )}
-          </div>
+          </NavLink>
         ))}
       </div>
     </div>

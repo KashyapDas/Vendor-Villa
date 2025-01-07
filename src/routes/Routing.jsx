@@ -1,19 +1,22 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Cart from '../Pages/Cart'
 import Categories from '../Pages/Categories'
 import Home from '../Pages/Home'
 import Description from '../Pages/Description'
+import Favourite from '../Pages/Favourite'
+import Filter from '../Pages/Filter'
 
 const Routing = () => {
+
   return (
     <Routes>
 
         <Route path='/' element={<Home/>} />
         <Route path='/categories' element={<Categories/>} />
         <Route path='/cart' element={<Cart/>} />
-        <Route path='/description' element={<Description/>} />
-
+        <Route path="/description/:title" element={<Description/>} />
+        <Route path="/categories/:category" element={<Filter/>} />
     </Routes>
   )
 }
