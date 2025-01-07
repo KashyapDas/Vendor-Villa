@@ -6,13 +6,15 @@ import { NavLink } from 'react-router-dom';
 
 const Description = () => {
 
-  const getCardDetails = useRecoilValue(cardDetails);
+
+    const getCardDetails = useRecoilValue(cardDetails);
+  
 
   return (
-    <div className='w-screen h-[93vh] bg-slate-100 flex items-center justify-center'>
+    <div className='w-screen h-[93vh] bg-slate-100 flex items-center justify-center overflow-y-scroll overflow-x-hidden'>
 
-      <div className="cardDetails w-[80%] h-[95%] rounded-md flex flex-col">
-        <div className="imageSection w-full h-[50%] overflow-hidden flex items-center justify-center rounded-r-md">
+      <div className={`cardDetails w-[80%] h-[90%] overflow-x-hidden overflow-y-scroll rounded-md flex flex-col ${style.scrollBehaviour}`}>
+        <div className="imageSection w-full h-[40vh] overflow-hidden flex items-center justify-center rounded-r-md">
             <img src={getCardDetails.image} alt="Image Not Found" className='w-ful h-full object-contain rounded-md mix-blend-multiply' />
         </div>
         <div className="descriptionSection w-full h-[50%]">

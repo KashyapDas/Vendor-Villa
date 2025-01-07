@@ -21,7 +21,7 @@ const Cards = React.memo(() => {
     <div className="w-full h-fit p-1 flex flex-wrap gap-x-8 gap-y-5">
       {getAllProducts.contents.map((items) => (
         <NavLink onClick={()=>handleCardDetails(items)}
-          to={`/description/${items.title}`}
+          to={`/description/${items.id}`}
           key={items.id}
           className="card h-80 w-48 rounded-xl overflow-hidde p-1 relative bg-white shadow-sm shadow-black"
         >
