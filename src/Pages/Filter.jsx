@@ -1,28 +1,22 @@
 import React from 'react'
 import { NavLink, useParams } from 'react-router-dom'
-import { useRecoilStateLoadable, useSetRecoilState } from 'recoil';
+import { useRecoilStateLoadable } from 'recoil';
 import { selectorCategories } from '../store/selector/SelectorCategories';
 import LoadingScreen from '../Components/LoadingScreen '
 import { CiShoppingCart } from 'react-icons/ci';
 import style from "../style.module.css"
-import { cardDetails } from '../store/atom/cardDetails';
 
 const Filter = React.memo(() => {
   const getURLName = useParams();
   const fetchResult = getURLName.category.split("}")[0];
 
   const fetchByCategory = useRecoilStateLoadable(selectorCategories(fetchResult));
-  const setCardDetails = useSetRecoilState(cardDetails);
-  const handleCardDetails = (item)=>{
-    setCardDetails(item);
-  }
 
   return fetchByCategory[0].state == "loading" ? (<LoadingScreen/>) :(
     <div className='w-full p-1 flex flex-wrap gap-x-8 gap-y-5 h-[93vh] overflow-x-hidden overflow-y-scroll'>
 
-      {fetchByCategory[0].contents.map((item,index)=>(
+      {fetchByCategory[0].contents.map((item)=>(
           <NavLink key={item.id}
-          onClick={()=>handleCardDetails(item)}
           to={`/description/${item.id}`}
           className="card h-80 w-48 rounded-xl overflow-hidden p-1 relative bg-white shadow-sm shadow-black"
         >

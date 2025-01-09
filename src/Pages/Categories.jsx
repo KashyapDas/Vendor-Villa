@@ -11,7 +11,7 @@ import LoadingScreen from "../Components/LoadingScreen ";
 
 const Categories = () => {
   const currPath = useLocation();
-  const [getCategories, setCategories] = useRecoilStateLoadable(
+  const [getCategories] = useRecoilStateLoadable(
     SelectorProducts(currPath)
   );
 
