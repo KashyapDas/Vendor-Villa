@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "../style.module.css";
-import { CiShoppingCart } from "react-icons/ci";
+import { CiCircleMore } from "react-icons/ci";
 import { NavLink, useLocation } from "react-router-dom";
-import { useRecoilStateLoadable } from "recoil";
+import { useRecoilStateLoadable} from "recoil";
 import { SelectorProducts } from "../store/selector/Selectorproducts";
 
 const Cards = React.memo(() => {
 
   const currPath = useLocation();
 
-  const [getAllProducts, setAllProducts] = useRecoilStateLoadable(SelectorProducts(currPath));
+  const [getAllProducts] = useRecoilStateLoadable(SelectorProducts(currPath));
 
   return (
-    <div className="w-full h-fit p-1 flex flex-wrap gap-x-8 gap-y-5">
+    <div className="w-full h-fit p-1 flex flex-wrap gap-x-8 gap-y-5 relative">
       {getAllProducts.contents.map((items) => (
         <NavLink
           to={`/description/${items.id}`}
@@ -48,9 +48,10 @@ const Cards = React.memo(() => {
           >
             $ {items.price}
           </h1>
-          <div className="cartButton bg-blue-600 absolute bottom-1 right-1 -translate-x-1 -translate-y-1 p-2 rounded-lg">
-            <CiShoppingCart className="text-2xl text-white font-bold" />
+          <div  className="cartButton absolute bottom-1 right-1 -translate-x-1 -translate-y-1 p-2 rounded-lg">
+            <CiCircleMore className="text-2xl text-black font-bold" />
           </div>
+
         </NavLink>
       ))}
     </div>

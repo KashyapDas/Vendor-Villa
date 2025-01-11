@@ -8,8 +8,12 @@ import LoadingScreen from '../Components/LoadingScreen ';
 const Description = () => {
   const getProductId = useParams();
   const getSingleProductDetails = useRecoilStateLoadable(singleProductDetails(getProductId.id));
-  console.log(getSingleProductDetails[0].state);  
-  console.log(getSingleProductDetails[0].contents);  
+
+
+  const handleCart = () =>{
+    localStorage.setItem("setCart",JSON.stringify(getSingleProductDetails[0].contents));
+  }
+
 
   return getSingleProductDetails[0].state == "loading" ? (<LoadingScreen/>) : (
     <div className='w-screen h-[93vh] bg-slate-100 flex items-center justify-center overflow-y-scroll overflow-x-hidden'>
@@ -25,7 +29,7 @@ const Description = () => {
             <h2 className={`w-full h-fit ${style.gilroy} text-sm p-1 text-left`}>{getSingleProductDetails[0].contents.description}</h2>
             <div className="buttonSection w-full h-fit flex items-center justify-start ml-1 gap-x-7 mt-3">
                 <NavLink to="/favourite" className={`bg-black active:bg-red-600 text-white p-2 ${style.gilroyBold} rounded-md`}>Add to Favourite</NavLink>
-                <NavLink to="/cart" className={`bg-black text-white p-2 ${style.gilroyBold} rounded-md`}>Buy now</NavLink>
+                <NavLink onClick={handleCart} to="/cart" className={`bg-black text-white p-2 ${style.gilroyBold} rounded-md`}>Add to cart</NavLink>
             </div>
         </div>
       </div>
