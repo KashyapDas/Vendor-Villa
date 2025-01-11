@@ -12,7 +12,7 @@ const Home = () => {
 
   const currPath = useLocation();
 
-  const [getAllProducts, setAllProducts] = useRecoilStateLoadable(SelectorProducts(currPath));
+  const [getAllProducts] = useRecoilStateLoadable(SelectorProducts(currPath));
 
   return getAllProducts.state != "loading" ? (
     <div className={`w-full h-[93vh] overflow-x-hidden overflow-y-scroll ${style.scrollBehaviour}`}>

@@ -17,6 +17,9 @@
 .borderTop{
     border-top: 2px solid black;
 }
+.borderBottom{
+    border-bottom: 2px solid black;
+}
 
 .scrollBehaviour::-webkit-scrollbar{
     display: none;

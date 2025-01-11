@@ -12,7 +12,7 @@ const Cards = React.memo(() => {
   const [getAllProducts] = useRecoilStateLoadable(SelectorProducts(currPath));
 
   return (
-    <div className="w-full h-fit p-1 flex flex-wrap gap-x-8 gap-y-5 relative">
+    <div className="w-full h-fit p-1 flex flex-wrap gap-x-8 gap-y-5 relative justify-evenly lg:justify-start lg:pl-20">
       {getAllProducts.contents.map((items) => (
         <NavLink
           to={`/description/${items.id}`}

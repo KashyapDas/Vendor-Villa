@@ -31,4 +31,4 @@ const MNavbar = React.memo(() => {
   )
 })
 
-export default MNavbar
+export default MNavbar;

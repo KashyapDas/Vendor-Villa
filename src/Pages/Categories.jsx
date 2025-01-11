@@ -16,13 +16,13 @@ const Categories = () => {
   );
 
   return getCategories.state != "loading" ? (
-    <div className="w-full h-[93vh] overflow-x-hidden overflow-y-scroll">
-      <div className="mobileDiv h-full w-full flex justify-center p-2 flex-wrap lg:hidden">
+    <div className={`w-full h-[93vh] overflow-x-hidden overflow-y-scroll ${style.scrollBehaviour}`}>
+      <div className={`mobileDiv h-full w-full flex justify-center p-2 flex-col items-center gap-y-5 lg:flex-row lg:flex-wrap lg:items-baseline lg:gap-x-5 lg:justify-start overflow-x-hidden overflow-y-scroll ${style.scrollBehaviour}`}>
         {getCategories.contents.map((items, index) => (
           <NavLink
             to={`/categories/${items}}`}
             key={index}
-            className={`categoryCards w-80 h-36 rounded-lg flex items-center justify-center gap-x-3 ${
+            className={`categoryCards w-80 h-36 rounded-lg flex items-center justify-center gap-x-3  ${
               items == "women's clothing"
                 ? "bg-blue-500"
                 : items == "men's clothing"

@@ -26,15 +26,15 @@ const LoadingScreen = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+    <div className="flex items-center justify-center h-screen bg-gradient-to-br bg-white text-black">
       <div className="text-center">
         <motion.div
-          className="w-16 h-16 border-4 border-t-transparent border-white rounded-full"
+          className="w-16 h-16 border-4 border-t-transparent border-black rounded-full"
           variants={spinnerVariants}
           animate="rotate"
         ></motion.div>
         <motion.p
-          className="mt-4 text-lg font-semibold"
+          className="mt-4 text-lg font-semibold lg:text-4xl"
           variants={textVariants}
           initial="initial"
           animate="animate"
