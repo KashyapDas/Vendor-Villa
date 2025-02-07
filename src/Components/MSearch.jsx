@@ -25,7 +25,7 @@ const MSearch = React.memo(() => {
     };
 
   return (
-    <div className="input flex justify-end lg:justify-end p-3">
+    <div className="input flex justify-end lg:justify-end p-3 lg:inline-block lg:absolute lg:top-0 lg:right-0">
         <div className='border-2 border-solid border-black flex justify-end bg-blue-400'>
             <CiSearch className='bg-white p-1 text-4xl' />
             <input onChange={handleSearch} ref={element} type="text" placeholder="Search"   className='text-slate-400 border-none outline-none' />
